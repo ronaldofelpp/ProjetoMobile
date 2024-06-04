@@ -6,18 +6,53 @@
   </ion-toolbar>
 </ion-header>
 
+  <ion-segment (ionChange)="mudancaCategoria($event)">
+  <ion-segment-button value="general" checked>
+    Geral
+  </ion-segment-button>
+  <ion-segment-button value="business">
+    Negócios
+  </ion-segment-button>
+  <ion-segment-button value="entertainment">
+    Entretenimento
+  </ion-segment-button>
+  <ion-segment-button value="science">
+    Ciência
+  </ion-segment-button>
+  <ion-segment-button value="health">
+    Saúde
+  </ion-segment-button>
+  <ion-segment-button value="sports">
+    Esportes
+  </ion-segment-button>
+  <ion-segment-button value="technology">
+    Tecnologia
+  </ion-segment-button>
+</ion-segment>
+
 <ion-content class="ion-padding">
 
-  <ion-card>
-    <img alt="Silhouette of mountains" [src]="noticia.imagem" />
+  <ion-refresher slot="fixed" (ionRefresh)="efeitoRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-card *ngFor="let article of articles">
+    <img alt="Silhouette of mountains" [src]="article.urlToImage" />
     <ion-card-header>
-      <ion-card-title>{{noticia.titulo}}</ion-card-title>
-      <ion-card-subtitle>{{noticia.subtitulo}}</ion-card-subtitle>
+      <ion-card-title>{{article.title}}</ion-card-title>
+      <ion-card-subtitle>{{category | titlecase}}</ion-card-subtitle>
     </ion-card-header>
   
     <ion-card-content>
-      {{noticia.desc}}
+      {{article.description}}
     </ion-card-content>
   </ion-card>
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="scrollInfinito($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Carregando mais notícias...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+  <button (click)="onLogout()">Sair</button>
   
 </ion-content>

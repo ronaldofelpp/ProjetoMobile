@@ -11,12 +11,12 @@
       </ion-card-header>
       <ion-card-content>
 
-        <ion-input label="Login" type="text" color="dark" label-placement="floating" fill="outline" placeholder="Digite seu nome de usuário"></ion-input>
+        <ion-input label="Login" type="text" color="dark" label-placement="floating" fill="outline" placeholder="Digite seu nome de usuário" [(ngModel)]="email" ></ion-input>
         <br>
-        <ion-input label="Senha" type="password" color="dark" label-placement="floating" fill="outline" placeholder="Digite sua senha"></ion-input>
+        <ion-input label="Senha" type="password" color="dark" label-placement="floating" fill="outline" placeholder="Digite sua senha" [(ngModel)]="password"></ion-input>
         
         <ion-button fill="clear" >Esqueceu seu email/senha?</ion-button>
-        <ion-button expand="block" >Entrar</ion-button>
+        <ion-button expand="block" (click)="onLogin()">Entrar</ion-button>
         <ion-button expand="block" >Cadastrar-se</ion-button>
         <br>
         
