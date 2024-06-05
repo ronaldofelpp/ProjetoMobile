@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      <img src="assets/images/my-image2.png" alt="" class="toolbar-logo">
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -38,5 +38,26 @@
         </ion-grid>
       </ion-card-header>
     </ion-card>
+
+    <div class="news-section-title">
+      <h2>Aqui estão as notícias mais populares do dia de hoje!</h2>
+    </div>
+
+    <ion-card *ngFor="let article of topNews">
+      <img alt="Silhouette of mountains" [src]="article.urlToImage" />
+      <ion-card-header>
+        <ion-card-title>{{ article.title }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>{{ article.description }}</p>
+        <ion-button fill="outline" size="small" href="{{ article.url }}" target="_blank">Leia mais</ion-button>
+      </ion-card-content>
+    </ion-card>
+  
+    <ion-refresher slot="fixed" (ionRefresh)="refreshNews($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
   </div>
+  
 </ion-content>

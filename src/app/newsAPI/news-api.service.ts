@@ -18,4 +18,9 @@ export class NewsAPIService {
     return this.http.get(url);
   }
 
+  getTopNews(country: string = 'us', language: string = 'pt'): Observable<any> {
+    const url = `${this.baseUrl}?country=${country}&language=${language}&pageSize=4&apiKey=${this.apiKey}`;
+    return this.http.get(url);
+  }
+
 }

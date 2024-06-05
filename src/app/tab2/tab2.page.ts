@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OpenWeatherService } from '../openWeather/open-weather.service';
+import { NewsAPIService } from '../newsAPI/news-api.service';
 
 @Component({
   selector: 'app-tab2',
@@ -15,12 +16,30 @@ export class Tab2Page implements OnInit {
   currentTime: string ='';
   city: string ='';
   state: string ='';
+  topNews: any[] = [];
 
   ngOnInit() {
     this.updateWeather();
     setInterval(() => this.updateWeather(), 360000); // a cada 6 minutos
     setInterval(() => this.updateTime(), 1000); // atualiza o tempo a cada segundo
+    this.carregaNoticiasPopulares();
   }
+
+  constructor(private openWeather: OpenWeatherService, private newsApi: NewsAPIService) {
+    this.bemVindo();
+  }
+
+  carregaNoticiasPopulares() {
+    this.newsApi.getTopNews('us','en').subscribe(data => {
+      this.topNews = data.articles;
+    });
+  }
+
+  refreshNews(event:any) {
+    this.newsApi.getTopNews('us','en').subscribe(data => {
+      this.topNews = data.articles;
+      event.target.complete();
+  });}
 
   updateWeather() {
     this.openWeather.getGeolocation().then((position: { lat: any; lon: any; }) => {
@@ -75,15 +94,11 @@ export class Tab2Page implements OnInit {
   
     if (horas >= 4 && horas < 12) {
       this.saudacao = "Bom dia, ";
-    } else if (horas >= 12 && horas < 19) {
+    } else if (horas >= 12 && horas < 18) {
       this.saudacao = "Boa tarde, ";
     } else {
       this.saudacao = "Boa noite, ";
     }
-  }
-
-  constructor(private openWeather: OpenWeatherService) {
-    this.bemVindo();
   }
 
 }

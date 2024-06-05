@@ -1,4 +1,8 @@
-
+.toolbar-logo {
+  display: block;
+  margin: 0 auto;
+  height: 70px; 
+}
 
 ion-card {
     border-radius: 20px!important;
@@ -36,5 +40,19 @@ ion-card {
   
   .current-time {
     font-size: 24px;
+  }
+
+  .news-section-title {
+    text-align: center;
+    margin: 20px 0;
+    padding: 10px 0;
+
+    border-radius: 10px;
+  }
+  
+  .news-section-title h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
   }
   
