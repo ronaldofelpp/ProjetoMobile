@@ -17,6 +17,14 @@ const routes: Routes = [
   {
     path: 'integrantes',
     loadChildren: () => import('./integrantes/integrantes.module').then( m => m.IntegrantesPageModule)
+  },
+  {
+    path: 'sobre',
+    loadChildren: () => import('./sobre/sobre.module').then( m => m.SobrePageModule)
+  },
+  {
+    path: 'sobre-api',
+    loadChildren: () => import('./sobre-api/sobre-api.module').then( m => m.SobreAPIPageModule)
   }
 ];
 @NgModule({

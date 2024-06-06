@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/tab3"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="4">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>NewsAPI</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>API para buscar notícias de várias fontes e países.</p>
+          </ion-card-content>
+          <div class="button-container">
+            <ion-button expand="block" (click)="openNewsAPISite()">Ir para o site da NewsAPI</ion-button>
+          </div>
+            
+         <br>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="12" size-md="4">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>OpenWeather</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>API para obter informações climáticas, previsões do tempo e muito mais.</p>
+          </ion-card-content>
+            <div class="button-container">
+              <ion-button expand="block" (click)="openOpenWeatherSite()">Ir para o site da OpenWeather</ion-button>
+            </div>
+          <br>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="12" size-md="4">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Geolocalização do Ionic</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>API para obter a localização geográfica do dispositivo utilizando o Ionic.</p>
+          </ion-card-content>
+          <div class="button-container">
+            <ion-button expand="block" (click)="openGeolocationSite()">Ir para o site da Geolocalização</ion-button>
+          </div>
+          <br>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

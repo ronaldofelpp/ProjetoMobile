@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ThemeService } from '../theme/theme.service';
 
 @Component({
   selector: 'app-tab3',
@@ -7,29 +8,29 @@ import { Router } from '@angular/router';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
-  userName: string ='';
+  userPassword: string ='';
   userEmail: string='';
-  initialUserName: string='';
+  initialUserPassword: string='';
   initialUserEmail: string='';
   isFormChanged: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private themeService: ThemeService) {}
 
   ngOnInit(){
-    this.initialUserName = 'Nome do Usuário';
+    this.initialUserPassword = 'Nome do Usuário';
     this.initialUserEmail = 'email@usuario.com';
-    this.userName = this.initialUserName;
+    this.userPassword = this.initialUserPassword;
     this.userEmail = this.initialUserEmail;
   }
 
   onInputChange() {
-    this.isFormChanged = (this.userName !== this.initialUserName || this.userEmail !== this.initialUserEmail);
+    this.isFormChanged = (this.userPassword !== this.initialUserPassword || this.userEmail !== this.initialUserEmail);
   }
 
   updateUserData() {
     // Lógica para atualizar os dados do usuário (a implementar)
     console.log('Atualizando dados do usuário...');
-    this.initialUserName = this.userName;
+    this.initialUserPassword = this.userPassword;
     this.initialUserEmail = this.userEmail;
     this.isFormChanged = false;
   }
@@ -38,7 +39,12 @@ export class Tab3Page {
     this.router.navigate(['/change-password']);
   }
 
+  toggleTheme() {
+    this.themeService.toggleDarkMode();
+  }
 
-  
+  isDarkMode(): boolean {
+    return this.themeService.isDarkMode();
+  }
 
 }

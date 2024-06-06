@@ -7,9 +7,10 @@
     </ion-header>
     <ion-content>
       <ion-list>
-        <ion-item routerLink="/user-profile">Utilização das API's</ion-item>
-        <ion-item routerLink="/settings">Configurações</ion-item>
-        <ion-item routerLink="/about">Sobre</ion-item>
+        <ion-item routerLink="/sobre-api" (click)="closeMenu()">Utilização das API's</ion-item>
+        <ion-item routerLink="/settings" (click)="closeMenu()">Configurações</ion-item>
+        <ion-item routerLink="/sobre" (click)="closeMenu()">Sobre</ion-item>
+        <ion-item routerLink ="/tab3" (click)="confirmLogout()">Sair<ion-icon name="log-out-outline" slot="start"></ion-icon></ion-item>
       </ion-list>
     </ion-content>
   </ion-menu>

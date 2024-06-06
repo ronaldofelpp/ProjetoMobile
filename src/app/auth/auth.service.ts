@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import firebase from 'firebase/compat/app';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 
@@ -18,6 +17,11 @@ export class AuthService {
       } catch (error) {
         console.error('Erro ao fazer login: ', error);
       }
+    }
+
+    async register(email: string, password: string) {
+      const result = await this.angularAuth.createUserWithEmailAndPassword(email, password);
+      return result.user;
     }
 
     async logout() {

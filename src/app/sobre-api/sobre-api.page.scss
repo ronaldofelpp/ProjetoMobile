@@ -1,0 +1,23 @@
+ion-card {
+    margin-bottom: 20px;
+    
+}
+  
+ion-card-header ion-card-title {
+    font-weight: bold;
+}
+
+ion-card .button-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  
+ion-card ion-button {
+    
+    text-transform: initial;
+    --border-radius: 30px;
+    --background: #ff5204;
+    width: 90%;
+}
+

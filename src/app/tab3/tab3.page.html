@@ -19,16 +19,16 @@
     <ion-row>
       <ion-col>
         <ion-item>
-          <ion-label position="floating">Nome</ion-label>
-          <ion-input [(ngModel)]="userName" (ionChange)="onInputChange()"></ion-input>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input [(ngModel)]="userEmail" (ionChange)="onInputChange()"></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
         <ion-item>
-          <ion-label position="floating">Email</ion-label>
-          <ion-input [(ngModel)]="userEmail" (ionChange)="onInputChange()"></ion-input>
+          <ion-label position="floating">Senha</ion-label>
+          <ion-input [(ngModel)]="userPassword" (ionChange)="onInputChange()"></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
@@ -42,5 +42,13 @@
         <ion-button expand="block" (click)="changePassword()">Mudar Senha</ion-button>
       </ion-col>
     </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-toggle (ionChange)="toggleTheme()" [checked]="isDarkMode()" class="custom-toggle">
+          <ion-icon [name]="isDarkMode() ? 'moon' : 'sunny'" class="theme-icon"></ion-icon>
+        </ion-toggle>
+      </ion-col>
+    </ion-row>
   </ion-grid>
+  
 </ion-content>

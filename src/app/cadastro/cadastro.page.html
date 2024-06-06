@@ -14,16 +14,15 @@
 
         <ion-input label="Primeiro nome" type="text" color="dark" label-placement="floating" fill="outline" placeholder="Digite seu primeiro nome"></ion-input>
         <br>
-        <ion-input label="Login" type="text" color="dark" label-placement="floating" fill="outline" placeholder="Crie seu nome de usuário"></ion-input>
+        <ion-input label="Email" type="email" color="dark" label-placement="floating" fill="outline" placeholder="Digite um email válido" [(ngModel)]="email"></ion-input>
         <br>
-        <ion-input label="Email" type="email" color="dark" label-placement="floating" fill="outline" placeholder="Digite um email válido"></ion-input>
+        <ion-input label="Senha" type="password" color="dark" label-placement="floating" fill="outline" placeholder="Crie sua senha" [(ngModel)]="password"></ion-input>
         <br>
-        <ion-input label="Senha" type="password" color="dark" label-placement="floating" fill="outline" placeholder="Crie sua senha"></ion-input>
-        <br>
-        <ion-input label="Confirmar senha" type="password" color="dark" label-placement="floating" fill="outline" placeholder="Digite novamente sua senha"></ion-input>
+        <ion-input label="Confirmar senha" type="password" color="dark" label-placement="floating" fill="outline" placeholder="Digite novamente sua senha" [(ngModel)]="confirmPassword"></ion-input>
         
-        <ion-button fill="clear" >Já é cadastrado?</ion-button>
-        <ion-button expand="block" >Cadastrar</ion-button>
+        <ion-button fill="clear" routerLink="/login" >Já é cadastrado?</ion-button>
+        <ion-button expand="block" (click)="passTry()">Cadastrar</ion-button>
+        <p *ngIf="errorMessage">{{ errorMessage }}</p>
         <br>
         
 
