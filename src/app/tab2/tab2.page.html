@@ -9,7 +9,7 @@
 <ion-content class="ion-padding">
   <div class="flex-center">
     <h1>{{saudacao}}</h1>
-    <ion-card>
+    <ion-card class="weatherCard">
       <ion-card-header>
         <ion-grid>
           <ion-row>
@@ -17,22 +17,26 @@
               <ion-grid>
                 <ion-row>
                   <ion-col size="12" class="state-city">
-                    <small>{{state}}, {{city}}</small>
+                    <small><ion-icon name="location-outline" color="danger"></ion-icon> {{city}}, {{state}}</small>
                   </ion-col>
                 </ion-row>
                 <ion-row>
                   <ion-col size="12">
-                    <h1 class="temperature">{{temperature}}{{mensagem}}</h1>
+                    <h1 class="temperature">{{temperature}} {{mensagem}}</h1>
                   </ion-col>
                   <ion-col size="12">
-                    <small class="rain-probability">{{rainProbability}}</small>
+                    <small class="rain-probability"><ion-icon name="umbrella-outline" color="primary"></ion-icon> {{rainProbability}}</small>
+                  </ion-col>
+                  <ion-col size="12">
+                    <small class="rain-probability"><ion-icon name="paper-plane-outline" color="primary" ></ion-icon> {{windSpeed}}</small>
                   </ion-col>
                 </ion-row>
               </ion-grid>
             </ion-col>
             <ion-col size="3" class="icon-time" text-end>
+              <!-- <img [src]="iconName" alt="Weather Icon"> /para usar o icone da api-->
               <ion-icon [name]="iconName"></ion-icon>
-              <h3 class="current-time">{{currentTime}}</h3>
+              <h3 class="current-time">{{currentDate}} {{currentTime}}</h3>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -50,7 +54,9 @@
       </ion-card-header>
       <ion-card-content>
         <p>{{ article.description }}</p>
-        <ion-button fill="outline" size="small" href="{{ article.url }}" target="_blank">Leia mais</ion-button>
+        <div class="ion-text-center">
+          <ion-button fill="outline" size="small" href="{{ article.url }}" target="_blank" style="--border-radius: 30px; --color: orangered; --border-color: orangered">Leia mais</ion-button>
+        </div>
       </ion-card-content>
     </ion-card>
   

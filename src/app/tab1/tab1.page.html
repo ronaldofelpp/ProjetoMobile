@@ -1,12 +1,12 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Feed de notícias
+      <img src="assets/images/my-image2.png" alt="" class="toolbar-logo">
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-  <ion-segment (ionChange)="mudancaCategoria($event)">
+  <ion-segment [scrollable]='true' value="general" (ionChange)="mudancaCategoria($event)">
   <ion-segment-button value="general" checked>
     Geral
   </ion-segment-button>
@@ -45,8 +45,9 @@
   
     <ion-card-content>
       <p>{{article.description}}</p>
-
-      <ion-button fill="outline" size="small" href="{{ article.url }}" target="_blank">Leia mais</ion-button>
+      <div class="ion-text-center">
+        <ion-button fill="outline" size="small" href="{{ article.url }}" target="_blank" style="--border-radius: 30px; --color: orangered; --border-color: orangered">Leia mais</ion-button>
+      </div>
     </ion-card-content>
 
     
@@ -56,7 +57,5 @@
     <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Carregando mais notícias...">
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>
-
-  <button (click)="onLogout()">Sair</button>
   
 </ion-content>

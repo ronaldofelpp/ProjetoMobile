@@ -1,0 +1,38 @@
+ion-content{
+    --background: rgb(255,238,230);
+    --background: radial-gradient(circle, rgba(255,172,135,1) 0%, rgba(255,82,4,1) 120%);
+}
+
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100%;
+}
+
+ion-card-title{
+    text-align: center;
+}
+
+ion-card{
+    border-radius: 20px!important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); 
+    
+    img{
+        align-self: center;
+        line-height: 16px;
+    }
+}
+
+ion-button{
+    text-transform: initial;
+    --border-radius: 30px;
+}
+
+ion-button[fill=clear]{
+    color: #ff5204;
+}
+
+ion-button[expand="block"]{
+    --background: #ff5204;
+}

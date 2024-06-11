@@ -7,13 +7,11 @@
 
     <ion-card>
       <ion-card-header>
-        <img alt="logo" src="assets/images/NEWSUAM6.png" style="height: 100px; width: 100px;"/>
         <ion-card-title><h1>Cadastro</h1></ion-card-title>
+        <img alt="logo" src="assets/images/NEWSUAM6.png" style="height: 100px; width: 100px;"/>
       </ion-card-header>
-      <ion-card-content>
 
-        <ion-input label="Primeiro nome" type="text" color="dark" label-placement="floating" fill="outline" placeholder="Digite seu primeiro nome"></ion-input>
-        <br>
+      <ion-card-content>
         <ion-input label="Email" type="email" color="dark" label-placement="floating" fill="outline" placeholder="Digite um email válido" [(ngModel)]="email"></ion-input>
         <br>
         <ion-input label="Senha" type="password" color="dark" label-placement="floating" fill="outline" placeholder="Crie sua senha" [(ngModel)]="password"></ion-input>
@@ -23,13 +21,7 @@
         <ion-button fill="clear" routerLink="/login" >Já é cadastrado?</ion-button>
         <ion-button expand="block" (click)="passTry()">Cadastrar</ion-button>
         <p *ngIf="errorMessage">{{ errorMessage }}</p>
-        <br>
-        
-
       </ion-card-content>
     </ion-card>
-
   </div>
-
-
 </ion-content>

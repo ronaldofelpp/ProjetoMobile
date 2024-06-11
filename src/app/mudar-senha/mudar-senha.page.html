@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/tab3"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <img src="assets/images/my-image2.png" alt="" width="195" class="toolbar-logo">
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="flex-center">
+
+    <ion-card>
+      <ion-card-header>
+        <img alt="logo" src="assets/images/NEWSUAM6.png" style="height: 100px; width: 100px;"/>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-card-title><h1>Mudar a senha</h1></ion-card-title>
+        <ion-card-subtitle><H2>Enviar email de recuperação.</H2></ion-card-subtitle>
+        <br>
+        <ion-input label="Email" type="text" color="dark" label-placement="floating" fill="outline" placeholder="Digite seu email:"></ion-input>
+        <ion-button expand="block">Enviar</ion-button>
+        <ion-button ion-button routerLink="/tabs/tab3" expand="block">Voltar a configuração</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

@@ -14,7 +14,8 @@ export class Tab3Page {
   initialUserEmail: string='';
   isFormChanged: boolean = false;
 
-  constructor(private router: Router, private themeService: ThemeService) {}
+  constructor(private router: Router, private themeService: ThemeService,) {
+  }
 
   ngOnInit(){
     this.initialUserPassword = 'Nome do Usuário';
@@ -24,7 +25,7 @@ export class Tab3Page {
   }
 
   onInputChange() {
-    this.isFormChanged = (this.userPassword !== this.initialUserPassword || this.userEmail !== this.initialUserEmail);
+    this.isFormChanged = (this.userEmail !== this.initialUserEmail);
   }
 
   updateUserData() {

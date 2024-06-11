@@ -4,6 +4,10 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'tabs',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
@@ -25,6 +29,10 @@ const routes: Routes = [
   {
     path: 'sobre-api',
     loadChildren: () => import('./sobre-api/sobre-api.module').then( m => m.SobreAPIPageModule)
+  },
+  {
+    path: 'mudar-senha',
+    loadChildren: () => import('./mudar-senha/mudar-senha.module').then( m => m.MudarSenhaPageModule)
   }
 ];
 @NgModule({

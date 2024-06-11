@@ -7,52 +7,63 @@
 ion-card {
     border-radius: 20px!important;
     height: auto;
-  }
-  
-  .state-city {
-    font-size: 14px;
-    text-align: left;
-  }
-  
-  .temperature {
-    font-size: 48px;
-    margin: 0;
-    text-align: left;
-  }
-  
-  .rain-probability {
-    font-size: 14px;
-    text-align: left;
-  }
-  
-  .icon-time {
-    text-align: right;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-  
-  .icon-time ion-icon {
-    margin-bottom: 8px;
-    margin-top: 10px;
-    font-size: 64px;
-  }
-  
-  .current-time {
-    font-size: 24px;
-  }
+}
 
-  .news-section-title {
-    text-align: center;
-    margin: 20px 0;
-    padding: 10px 0;
+.weatherCard{
+  background: linear-gradient(180deg, #87cefa, #1e90ff);
+}
 
-    border-radius: 10px;
-  }
+
   
-  .news-section-title h2 {
-    font-size: 20px;
-    font-weight: bold;
-    margin: 0;
-  }
-  
+.state-city {
+  font-size: 24px;
+  text-align: left;
+  color: white;
+}
+
+.temperature {
+  font-size: 48px;
+  margin: 0;
+  text-align: left;
+  font-weight: bold;
+  color: white;
+}
+
+.rain-probability {
+  font-size: 18px;
+  text-align: left;
+  color: white;
+}
+
+.icon-time {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  color: white;
+}
+
+.icon-time ion-icon {
+  margin-bottom: 8px;
+  margin-top: 10px;
+  font-size: 90px;
+  color: #FFA500;
+}
+
+.current-time {
+  font-size: 20px;
+  color: white;
+}
+
+.news-section-title {
+  text-align: center;
+  margin: 20px 0;
+  padding: 10px 0;
+  border-radius: 10px;
+}
+
+.news-section-title h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
