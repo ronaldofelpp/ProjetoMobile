@@ -20,4 +20,8 @@ export class LoginPage implements OnInit {
     this.authService.login(this.email, this.password);
   }
 
+  loginWithGoogle() {
+    this.authService.loginWithGoogle();
+  }
+
 }
