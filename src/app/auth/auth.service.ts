@@ -69,9 +69,28 @@ export class AuthService {
         throw new Error('No user is currently logged in');
       }
     }
+    //enviar email para quem tem conta e esqueceu a senha
+    async sendPasswordResetEmail(email: string) {
+      try {
+        await this.angularAuth.sendPasswordResetEmail(email);
+        console.log('Email de redefinição de senha enviado.');
+      } catch (error) {
+        console.error('Erro ao enviar email de redefinição de senha: ', error);
+      }
+    }
+    //enviar email para quem está logado e quer alterar a senha.
+    async changePassword(newPassword: string) {
+      const user = await this.angularAuth.currentUser;
+      if (user) {
+        await user.updatePassword(newPassword);
+        console.log('Senha atualizada com sucesso.');
+      } else {
+        throw new Error('No user is currently logged in');
+      }
+    }
 
     //pegar o usuario logado
-    getUser() {
+    getUser(): Promise<firebase.User | null> {
       return this.angularAuth.currentUser;
     }
 

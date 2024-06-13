@@ -11,11 +11,11 @@
       </ion-card-header>
       <ion-card-content>
 
-        <ion-input label="Login" type="text" color="dark" label-placement="floating" fill="outline" placeholder="Digite seu nome de usuário" [(ngModel)]="email" ></ion-input>
+        <ion-input label="Email" type="text" color="dark" label-placement="floating" fill="outline" placeholder="Digite seu email" [(ngModel)]="email" ></ion-input>
         <br>
         <ion-input label="Senha" type="password" color="dark" label-placement="floating" fill="outline" placeholder="Digite sua senha" [(ngModel)]="password"></ion-input>
         
-        <ion-button fill="clear" >Esqueceu seu email/senha?</ion-button>
+        <ion-button fill="clear" routerLink="/esqueci-senha">Esqueceu a senha? Clique para recuperar</ion-button>
         <ion-button expand="block" (click)="onLogin()">Entrar</ion-button>
         <ion-button expand="block" routerLink="/cadastro">Cadastrar-se</ion-button>
         <ion-button fill="clear" expand= "block" color="light" (click)="loginWithGoogle()"> <img src="../assets/images/googleG.png" alt="logo-google" style="width: 20px;"></ion-button>

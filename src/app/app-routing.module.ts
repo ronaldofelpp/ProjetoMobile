@@ -33,6 +33,10 @@ const routes: Routes = [
   {
     path: 'mudar-senha',
     loadChildren: () => import('./mudar-senha/mudar-senha.module').then( m => m.MudarSenhaPageModule)
+  },
+  {
+    path: 'esqueci-senha',
+    loadChildren: () => import('./esqueci-senha/esqueci-senha.module').then( m => m.EsqueciSenhaPageModule)
   }
 ];
 @NgModule({
