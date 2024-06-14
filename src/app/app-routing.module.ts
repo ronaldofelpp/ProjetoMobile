@@ -37,6 +37,10 @@ const routes: Routes = [
   {
     path: 'esqueci-senha',
     loadChildren: () => import('./esqueci-senha/esqueci-senha.module').then( m => m.EsqueciSenhaPageModule)
+  },
+  {
+    path: 'config',
+    loadChildren: () => import('./config/config.module').then( m => m.ConfigPageModule)
   }
 ];
 @NgModule({

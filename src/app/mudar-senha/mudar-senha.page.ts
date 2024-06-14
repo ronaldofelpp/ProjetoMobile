@@ -17,6 +17,7 @@ export class MudarSenhaPage implements OnInit {
         this.userEmail = user.email;
       } else {
         console.log('Erro ao achar email de usuário logado');
+        
       }
     });
   }

@@ -1,3 +1,14 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
 
+:root {
+    --font-size-small: 12px;
+    --font-size-normal: 16px;
+    --font-size-large: 22px;
+  
+    --font-size: var(--font-size-normal);
+  }
+  
+body, ion-content, ion-header, ion-footer, ion-title, ion-label, ion-button, ion-input, ion-card, ion-card-title, ion-card-content, ion-item, ion-select-option {
+    font-size: var(--font-size) !important;
+}

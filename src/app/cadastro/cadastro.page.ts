@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { AlertController} from '@ionic/angular';
 import { Router } from '@angular/router';
+import { FeedbackMessageService } from '../feedbackMessage/feedback-message.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -13,20 +14,19 @@ export class CadastroPage implements OnInit {
   email: string='';
   password: string='';
   confirmPassword: string='';
-  errorMessage: string='';
 
-  constructor(private authService: AuthService, private alertController: AlertController, private router: Router) { }
+  constructor(private authService: AuthService, private alertController: AlertController, private router: Router, private feedbackMessage: FeedbackMessageService) { }
 
   async passTry() {
     if (this.password !== this.confirmPassword) {
-      this.errorMessage = 'As senhas não são iguais!';
+      this.feedbackMessage.showToast('As senhas não coincidem' , 'danger');
       return;
   }
   try {
     const user = await this.authService.register(this.email, this.password);
 
     const alert = await this.alertController.create({
-      header: 'CADASTRADO',
+      header: 'USUÁRIO CADASTRADO',
       message: 'Você realizou seu cadastro com sucesso!',
       buttons: [
         {
@@ -41,8 +41,14 @@ export class CadastroPage implements OnInit {
     });
     await alert.present();
   } catch (error) {
-    this.errorMessage = 'Erro ao tentar cadastrar usuário';
+    this.feedbackMessage.showToast('Erro ao enviar email de recuperação' + this.getErrorMessage(error), 'danger');
   }
+  }
+  private getErrorMessage(error: unknown): string {
+    if (error instanceof Error) {
+      return error.message;
+    }
+    return 'Ocorreu um erro desconhecido.';
   }
   
   ngOnInit() {

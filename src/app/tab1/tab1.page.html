@@ -50,12 +50,17 @@
       </div>
     </ion-card-content>
 
-    
   </ion-card>
 
   <ion-infinite-scroll threshold="100px" (ionInfinite)="scrollInfinito($event)">
     <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Carregando mais notícias...">
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="scrollToTop()">
+      <ion-icon name="chevron-up-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
   
 </ion-content>

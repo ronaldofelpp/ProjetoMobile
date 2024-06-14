@@ -4,6 +4,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import firebase from 'firebase/compat/app';
+import { FeedbackMessageService } from '../feedbackMessage/feedback-message.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class AuthService {
   private userSubject = new BehaviorSubject<any>(null);
   user$ = this.userSubject.asObservable();
 
-  constructor(private angularAuth: AngularFireAuth, private angularStore: AngularFirestore, private router: Router) { 
+  constructor(private angularAuth: AngularFireAuth, private angularStore: AngularFirestore, private router: Router, private feedbackMessage: FeedbackMessageService) { 
     this.angularAuth.authState.subscribe(user => {
       this.userSubject.next(user);
     });
@@ -23,9 +24,10 @@ export class AuthService {
       try {
         const userCredential = await this.angularAuth.signInWithEmailAndPassword(email, password);
         this.userSubject.next(userCredential.user)
-        this.router.navigate(['/tabs/tab1']); 
+        this.router.navigate(['/tabs/tab2']); 
       } catch (error) {
         console.error('Erro ao fazer login: ', error);
+        this.feedbackMessage.showToast('Erro ao fazer login: ' + this.getErrorMessage(error), 'danger');
       }
     }
     
@@ -35,9 +37,10 @@ export class AuthService {
         const provider = new firebase.auth.GoogleAuthProvider();
         const userCredential = await this.angularAuth.signInWithPopup(provider);
         this.userSubject.next(userCredential.user);
-        this.router.navigate(['/tabs/tab1']);
+        this.router.navigate(['/tabs/tab2']);
       } catch (error) {
         console.error('Erro ao fazer login com Google: ', error);
+        this.feedbackMessage.showToast('Erro ao fazer login com Google: ' + this.getErrorMessage(error), 'danger');
       }
     }
 
@@ -55,6 +58,7 @@ export class AuthService {
         this.router.navigate(['/login']); // Redireciona para a página de login após o logout
       } catch (error) {
         console.error('Erro ao fazer logout: ', error);
+        this.feedbackMessage.showToast('Erro ao fazer logout: ' + this.getErrorMessage(error), 'danger');
         // Lida com erros, como exibir uma mensagem ao usuário
       }
     }
@@ -65,6 +69,7 @@ export class AuthService {
       if (user) {
         await user.updateEmail(newEmail);
         this.userSubject.next(user); // Atualiza o BehaviorSubject
+        this.feedbackMessage.showToast('Email alterado com sucesso: ' , 'success');
       } else {
         throw new Error('No user is currently logged in');
       }
@@ -74,8 +79,10 @@ export class AuthService {
       try {
         await this.angularAuth.sendPasswordResetEmail(email);
         console.log('Email de redefinição de senha enviado.');
+        this.feedbackMessage.showToast('Email de recuperação de senha enviado!', 'success');
       } catch (error) {
         console.error('Erro ao enviar email de redefinição de senha: ', error);
+        this.feedbackMessage.showToast('Erro ao enviar email de recuperação' + this.getErrorMessage(error), 'danger');
       }
     }
     //enviar email para quem está logado e quer alterar a senha.
@@ -84,6 +91,7 @@ export class AuthService {
       if (user) {
         await user.updatePassword(newPassword);
         console.log('Senha atualizada com sucesso.');
+        this.feedbackMessage.showToast('Senha alterada com sucesso!' , 'success');
       } else {
         throw new Error('No user is currently logged in');
       }
@@ -92,6 +100,13 @@ export class AuthService {
     //pegar o usuario logado
     getUser(): Promise<firebase.User | null> {
       return this.angularAuth.currentUser;
+    }
+
+    private getErrorMessage(error: unknown): string {
+      if (error instanceof Error) {
+        return error.message;
+      }
+      return 'Ocorreu um erro desconhecido.';
     }
 
     

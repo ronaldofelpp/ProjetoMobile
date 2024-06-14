@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ThemeService } from '../theme/theme.service';
 import { AuthService } from '../auth/auth.service';
 
 @Component({
@@ -13,7 +12,7 @@ export class Tab3Page {
   initialUserEmail: string='';
   isFormChanged: boolean = false;
 
-  constructor(private router: Router, private themeService: ThemeService, private authService: AuthService) {
+  constructor(private router: Router, private authService: AuthService) {
   }
 
   ngOnInit(){
@@ -45,14 +44,6 @@ export class Tab3Page {
 
   changePassword() {
     this.router.navigate(['/change-password']);
-  }
-
-  toggleTheme() {
-    this.themeService.toggleDarkMode();
-  }
-
-  isDarkMode(): boolean {
-    return this.themeService.isDarkMode();
   }
 
 }

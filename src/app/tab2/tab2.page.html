@@ -7,8 +7,22 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+
   <div class="flex-center">
-    <h1>{{saudacao}}</h1>
+    <div class="page-title">
+      <h1>{{saudacao}}<br>
+      <ion-chip routerLink="/tabs/tab3">
+        <ion-avatar>
+          <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+        </ion-avatar>
+        <ion-label>{{userEmail}}</ion-label>
+        <ion-icon name="arrow-back-circle"></ion-icon>
+      </ion-chip></h1> 
+    </div>
+    <div class="weather-section-title">
+      <h2>O clima agora na sua localização:</h2>
+      <ion-icon name="caret-down-outline" class="iconW" size='large'></ion-icon>
+    </div>
     <ion-card class="weatherCard">
       <ion-card-header>
         <ion-grid>
@@ -42,9 +56,10 @@
         </ion-grid>
       </ion-card-header>
     </ion-card>
-
+    
     <div class="news-section-title">
-      <h2>Aqui estão as notícias mais populares do dia de hoje!</h2>
+      <h2>Notícias mais populares do dia de hoje!</h2>
+      <ion-icon name="caret-down-outline" size="large" class="iconW"></ion-icon>
     </div>
 
     <ion-card *ngFor="let article of topNews">
@@ -65,5 +80,7 @@
     </ion-refresher>
 
   </div>
+
+  
   
 </ion-content>

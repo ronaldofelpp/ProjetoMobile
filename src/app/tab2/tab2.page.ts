@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OpenWeatherService } from '../openWeather/open-weather.service';
 import { NewsAPIService } from '../newsAPI/news-api.service';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-tab2',
@@ -20,15 +21,31 @@ export class Tab2Page implements OnInit {
   state: string ='';
   topNews: any[] = [];
 
+  userEmail: string='';
+
   ngOnInit() {
     this.updateWeather();
     setInterval(() => this.updateWeather(), 360000); // a cada 6 minutos
     setInterval(() => this.updateTime(), 1000); // atualiza o tempo a cada segundo
     this.carregaNoticiasPopulares();
+
+    this.authService.user$.subscribe(user=> {
+      if (user && user.email) {
+        this.userEmail = this.extractUsername(user.email)
+      } else {
+       this.userEmail = 'Carregando...';
+      }
+    });
   }
 
-  constructor(private openWeather: OpenWeatherService, private newsApi: NewsAPIService) {
+  constructor(private openWeather: OpenWeatherService, private newsApi: NewsAPIService, private authService: AuthService) {
     this.bemVindo();
+  }
+
+  
+  extractUsername(email: string): string {
+    const [username] = email.split('@');
+    return username;
   }
 
   carregaNoticiasPopulares() {

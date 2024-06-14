@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, viewChild } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { NewsAPIService } from '../newsAPI/news-api.service';
+import { IonContent } from '@ionic/angular';
+import { ViewChild } from '@angular/core';
+import { LoadingController } from '@ionic/angular';
+
 
 
 
@@ -10,9 +14,13 @@ import { NewsAPIService } from '../newsAPI/news-api.service';
   styleUrls: ['tab1.page.scss'],
   providers: [NewsAPIService]
 })
-export class Tab1Page {
 
-  constructor(private authService: AuthService, private newsAPIService: NewsAPIService) {}
+export class Tab1Page {
+  
+  @ViewChild(IonContent)
+  content!: IonContent;
+
+  constructor(private authService: AuthService, private newsAPIService: NewsAPIService, private loadingCtrl: LoadingController) {}
 
   public articles = new Array<any>();
   public category = 'general';
@@ -38,6 +46,7 @@ export class Tab1Page {
   }
 
   ionViewDidEnter() {
+    this.showLoading();
     this.carregarNoticias();
   }
 
@@ -62,13 +71,29 @@ export class Tab1Page {
   mudancaCategoria(event: any) {
     this.category = event.detail.value;
     this.page = 1;
+    this.showLoading();
+    this.scrollToTop();
     this.carregarNoticias();
+  }
+
+  
+  scrollToTop() {
+    this.content.scrollToTop(500);
+  }
+
+  async showLoading() {
+    const loading = await this.loadingCtrl.create({
+      message: 'Carregando...',
+      duration: 50,
+  });
+
+    loading.present();
   }
 
   onLogout(){
     this.authService.logout();
   }
-  }
+}
   
   
 

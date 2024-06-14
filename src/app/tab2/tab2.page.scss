@@ -66,4 +66,44 @@ ion-card {
   font-size: 20px;
   font-weight: bold;
   margin: 0;
+  margin-bottom: -15px;
 }
+
+.weather-section-title h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+  margin-bottom: -15px;
+}
+
+.weather-section-title {
+  text-align: center;
+  margin: 20px 0;
+  padding: 10px 0;
+  border-radius: 10px;
+}
+
+.iconW {
+  color: orangered;
+  margin-bottom: -30px;
+}
+
+.page-title h1{
+  font-weight: bold;
+  margin:0;
+  text-align: center;
+}
+
+.page-title ion-chip {
+  --padding-start: 20px;
+  --padding-end: 20px;
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+  --min-height: 50px;
+  --border-radius: 25px;
+  font-size: 20px;
+  margin-bottom: -10px;
+}
+
+
+
