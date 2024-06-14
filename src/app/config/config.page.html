@@ -1,23 +1,29 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>config</ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content class="ion-padding">
-  <ion-toggle (ionChange)="toggleTheme()" [checked]="isDarkMode()" class="custom-toggle">
-    <ion-icon [name]="isDarkMode() ? 'moon' : 'sunny'" class="theme-icon">modo claro/escuro</ion-icon>
-  </ion-toggle>
+  <div class="flex-center">
+    <ion-card>
+      <ion-card-title><h1>CONFIGURAÇÕES</h1></ion-card-title>
+      <ion-card-content>
+        <ion-label>Modo claro/escuro </ion-label>
+        <ion-toggle (ionChange)="toggleTheme()" [checked]="isDarkMode()" class="custom-toggle">
+          
+        </ion-toggle>
+        <ion-icon [name]="isDarkMode() ? 'moon' : 'sunny'" class="theme-icon">modo claro/escuro</ion-icon>
+        <br><br>
+        <ion-item>
+          
+          <ion-label>Tamanho da fonte</ion-label>
+          <ion-select [(ngModel)]="selectedFontSize" (ionChange)="onFontSizeChange($event)">
+            <ion-select-option value="small">Pequeno</ion-select-option>
+            <ion-select-option value="normal">Normal</ion-select-option>
+            <ion-select-option value="large">Grande</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <br>
+        <ion-button expand="block" routerLink="/tabs/tab3"><ion-icon name="arrow-back-outline"></ion-icon> Voltar</ion-button>
 
-  <ion-item>
-    <ion-label>Font Size</ion-label>
-    <ion-select [(ngModel)]="selectedFontSize" (ionChange)="onFontSizeChange($event)">
-      <ion-select-option value="small">Pequeno</ion-select-option>
-      <ion-select-option value="normal">Normal</ion-select-option>
-      <ion-select-option value="large">Grande</ion-select-option>
-    </ion-select>
-  </ion-item>
-
-  <ion-button routerLink="/tabs/tab3">voltar</ion-button>
-  
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>
