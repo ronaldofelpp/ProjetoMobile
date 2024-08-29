@@ -9,7 +9,7 @@ import { Geolocation } from '@capacitor/geolocation';
 })
 export class OpenWeatherService {
 
-  private apiKey = '75cefb8f5be06aecc1f407969059e1c6';
+  private apiKey = 'your_api_key';
   private apiUrl = 'https://api.openweathermap.org/data/2.5/weather';
 
   constructor(private http: HttpClient) { }
