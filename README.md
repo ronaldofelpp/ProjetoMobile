@@ -1,4 +1,4 @@
-NEWSUAM é um aplicativo desenvolvido como parte de um projeto acadêmico, oferecendo funcionalidades como cadastro e login de usuários, um feed infinito de notícias e informações climáticas em tempo real.
+## NEWSUAM é um aplicativo desenvolvido como parte de um projeto acadêmico, oferecendo funcionalidades como cadastro e login de usuários, um feed infinito de notícias e informações climáticas em tempo real.
 
 Tecnologias Utilizadas
 Ionic: Framework para o desenvolvimento de aplicativos híbridos.
